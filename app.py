@@ -46,3 +46,9 @@ with st.container():
         st.write("##")
         st.write("This is testing of the Image Text column")
         
+# ---- SLIDER ---- 
+with st.container():
+    st.write("---")
+    st.slider("Slider tester", 1, 5000, 2000)
+    
+        
