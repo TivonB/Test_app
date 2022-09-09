@@ -50,8 +50,6 @@ with st.container():
 with st.container():
     st.write("---")
     st.slider("Slider tester", 1, 5000, 2000)
-    st.sidebar.multiselect(
-            "Control which features?"
-        )
+    st.sidebar("Control which features?")
     
         
