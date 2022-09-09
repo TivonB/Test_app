@@ -39,8 +39,8 @@ with st.container():
         st.sidebar.button("Clear Input")
     st.write("---")
     st.subheader("Metrics")
-    st.markdown(seedData + "real images")
-    st.markdown(synData + "synthetic images")
+    st.write(seedData + "real images")
+    st.write(synData + "synthetic images")
         
 
         
