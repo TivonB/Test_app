@@ -41,6 +41,8 @@ with st.container():
     st.subheader("Metrics")
     st.write(seedData , "real images")
     st.write(synData ,"synthetic images")
+    st.write("---- GAN images")
+    st.write("Generated in - minutes and - seconds")
         
 
         
