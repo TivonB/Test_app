@@ -37,13 +37,12 @@ with st.container():
         st.sidebar.button("Generate GANs")
     with right_column:
         st.sidebar.button("Clear Input")
-        
- # ---- MAIN PAGE MID ----
-with st.container():
     st.write("---")
     st.subheader("Metrics")
     st.markdown(seedData + "real images")
     st.markdown(synData + "synthetic images")
+        
+
         
         
 # ---- MAIN PAGE BOTTOM ----
