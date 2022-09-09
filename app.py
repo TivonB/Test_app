@@ -24,7 +24,7 @@ with st.container():
 # ---- MAIN PAGE TOP ----
 with st.container():
     st.write("---")
-    st.image(img)
+    st.image(img,use_column_width=True)
     
 # ---- SIDE SLIDER ---- 
 with st.container():
