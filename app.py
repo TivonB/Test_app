@@ -32,11 +32,12 @@ with st.container():
     #st.slider("Slider tester", 1, 5000, 2000)
     st.sidebar.slider("Seed Data",1,10,10)
     st.sidebar.slider("Synthetic Data",1,4000,4000)
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.button("Generate GANs")
-    with right_column:
-        st.button("Clear Input")
+    #left_column, right_column = st.columns(2)
+    #with left_column:
+    st.button("Generate GANs")
+    #with right_column:
+    st.button("Clear Input")
+        
         
 # ---- MAIN PAGE BOTTOM ----
 with st.container():
