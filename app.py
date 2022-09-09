@@ -30,13 +30,20 @@ with st.container():
 with st.container():
     st.write("---")
     #st.slider("Slider tester", 1, 5000, 2000)
-    st.sidebar.slider("Seed Data",1,10,10)
-    st.sidebar.slider("Synthetic Data",1,4000,4000)
+    seedData = st.sidebar.slider("Seed Data",1,10,10)
+    synData = st.sidebar.slider("Synthetic Data",1,4000,4000)
     left_column, right_column = st.columns(2)
     with left_column:
         st.sidebar.button("Generate GANs")
     with right_column:
         st.sidebar.button("Clear Input")
+        
+ # ---- MAIN PAGE MID ----
+with st.container():
+    st.write("---")
+    st.subheader("Metrics")
+    st.write(seedData + "real images")
+    st.write(synData + "synthetic images")
         
         
 # ---- MAIN PAGE BOTTOM ----
