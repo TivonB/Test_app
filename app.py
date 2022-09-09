@@ -9,19 +9,51 @@ import streamlit as st
 from PIL import Image
 
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="My Webpage", page_icon=":tada:",layout="wide")
+st.set_page_config(page_title="GANs Web Interface",layout="wide")
 
 # ---- LOAD ASSETS ----
-img = Image.open("domo1.png")
+img = Image.open("Placeholder.png")
 
 # ---- HEADER SECTION ----
 with st.container():
-    st.subheader("This is the subheader.")
-    st.title("This the Title location")
-    st.write("This is a test app")
-    st.write("This app is used to understand streamlit")
+    #st.subheader("This is the subheader.")
+    st.title("Face-GANs.")
+    #st.write("This is a test app")
+    #st.write("This app is used to understand streamlit")
     
-# ---- MORE INFO ----
+# ---- MAIN PAGE TOP ----
+with st.container():
+    st.write("---")
+    st.image(img)
+    
+# ---- SIDE SLIDER ---- 
+with st.container():
+    st.write("---")
+    #st.slider("Slider tester", 1, 5000, 2000)
+    st.sidebar.slider("Seed Data",1,10,10)
+    st.sidebar.slider("Synthetic Data",1,4000,4000)
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.button("Generate GANs")
+    with right_column:
+        st.button("Clear Input")
+        
+# ---- MAIN PAGE BOTTOM ----
+with st.container():
+    st.write("---")
+    F_left_column, I_left_column, Mid_column, I_right_column, F_right_column = st.columns(5)
+    with F_left_column:
+        st.image(img)
+    with I_left_column:
+        st.image(img)
+    with Mid_column:
+        st.image(img)
+    with I_right_column:
+        st.image(img)
+    with F_right_column:
+        st.image(img)
+        
+"""# ---- MORE INFO ----
 with st.container():
     st.write("---")
     left_column, right_column = st.columns(2)
@@ -50,6 +82,6 @@ with st.container():
 with st.container():
     st.write("---")
     st.slider("Slider tester", 1, 5000, 2000)
-    st.sidebar.slider("Control which features?",1,2000,100)
+    st.sidebar.slider("Control which features?",1,2000,100)"""
     
         
