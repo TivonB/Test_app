@@ -42,8 +42,8 @@ with st.container():
 with st.container():
     st.write("---")
     st.subheader("Metrics")
-    st.write(seedData + "real images")
-    st.write(synData + "synthetic images")
+    st.markdown(seedData + "real images")
+    st.markdown(synData + "synthetic images")
         
         
 # ---- MAIN PAGE BOTTOM ----
