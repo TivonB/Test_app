@@ -61,7 +61,8 @@ with st.container():
         #st.image(img)
     #with F_right_column:
         #st.image(img)
-    st.image("Pic/Test_1.png")
+    picTest = ["Pic/Test_1.png","Pic/Test_2.png"]
+    st.image(picTest)
         
 
     
