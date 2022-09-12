@@ -61,7 +61,7 @@ with st.container():
         #st.image(img)
     #with F_right_column:
         #st.image(img)
-    st.markdown("https://github.com/TivonB/Test_app/blob/main/Pic/Test_1.png")
+    st.image("https://github.com/TivonB/Test_app/blob/main/Pic/Test_1.png")
         
 
     
