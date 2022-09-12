@@ -50,17 +50,18 @@ with st.container():
 # ---- MAIN PAGE BOTTOM ----
 with st.container():
     st.write("---")
-    F_left_column, I_left_column, Mid_column, I_right_column, F_right_column = st.columns(5)
-    with F_left_column:
-        st.image(img)
-    with I_left_column:
-        st.image(img)
-    with Mid_column:
-        st.image(img)
-    with I_right_column:
-        st.image(img)
-    with F_right_column:
-        st.image(img)
+    #F_left_column, I_left_column, Mid_column, I_right_column, F_right_column = st.columns(5)
+    #with F_left_column:
+        #st.image(img)
+    #with I_left_column:
+        #st.image(img)
+    #with Mid_column:
+        #st.image(img)
+    #with I_right_column:
+        #st.image(img)
+    #with F_right_column:
+        #st.image(img)
+    st.markdown("https://github.com/TivonB/Test_app/blob/main/Pic/Test_1.png")
         
 
     
