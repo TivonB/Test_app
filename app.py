@@ -7,6 +7,7 @@ Created on Thu Sep  8 14:06:02 2022
 
 import streamlit as st
 from PIL import Image
+import random
 
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="GANs Web Interface",layout="wide")
@@ -65,8 +66,9 @@ with st.container():
     fileTypeName = ".png"
     newsize = (300, 300)
     picTest = []
-    for i in range(1,3):
-        imgTest = Image.open(fileName+str(i)+fileTypeName)
+    k = random.sample(range(10), 5)
+    for i in range(1,5):
+        imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
     st.image(picTest)
