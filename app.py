@@ -61,9 +61,14 @@ with st.container():
         #st.image(img)
     #with F_right_column:
         #st.image(img)
-    picTest = ["Pic/Test_1.png","Pic/Test_2.png"]
+    fileName = "Pic/Test_"
+    fileTypeName = ".png"
     newsize = (300, 300)
-    picTest= picTest.resize(newsize)
+    picTest = []
+    for i in range(1,3):
+        imgTest = Image.open(fileName+str(i)+fileTypeName)
+        imgTest= imgTest.resize(newsize)
+        picTest.append(str(imgTest))
     st.image(picTest)
         
 
