@@ -68,7 +68,7 @@ with st.container():
     for i in range(1,3):
         imgTest = Image.open(fileName+str(i)+fileTypeName)
         imgTest= imgTest.resize(newsize)
-        picTest.append(str(imgTest))
+        picTest.append(imgTest)
     st.image(picTest)
         
 
