@@ -62,7 +62,7 @@ with st.container():
     #with F_right_column:
         #st.image(img)
     picTest = ["Pic/Test_1.png","Pic/Test_2.png"]
-    st.image(picTest)
+    st.image(<img src="{}" style=margin:3px;width:200px;></img>'.format(picTest))
         
 
     
