@@ -68,8 +68,8 @@ with st.container():
     fileTypeName = ".png"
     newsize = (200, 200)
     picTest = []
-    k = random.sample(range(1,10), 6)
-    for i in range(1,6):
+    k = random.sample(range(1,10), 1)
+    for i in range(1):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         #imgTest= imgTest.resize(newsize)
         pic1 = '<img src="{}" style=margin:3px;width:200px;></img>'.format(imgTest)
