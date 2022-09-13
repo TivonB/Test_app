@@ -62,6 +62,8 @@ with st.container():
         #st.image(img)
     #with F_right_column:
         #st.image(img)
+    opening_html = '<div style=display:flex;flex-wrap:wrap>'
+    closing_html = '</div>'
     fileName = "Pic/Test_"
     fileTypeName = ".png"
     newsize = (200, 200)
@@ -69,9 +71,11 @@ with st.container():
     k = random.sample(range(1,10), 6)
     for i in range(1,6):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
-        imgTest= imgTest.resize(newsize)
-        picTest.append(imgTest)
-    st.image(picTest)
+        #imgTest= imgTest.resize(newsize)
+        pic1 = '<img src="{}" style=margin:3px;width:200px;></img>'.format(imgTest)
+        picTest.append(opening_html+pic1+closing_html)
+        
+    st.markdown(picTest)
         
 
     
