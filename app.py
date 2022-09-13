@@ -31,8 +31,8 @@ with st.container():
 with st.container():
     st.write("---")
     #st.slider("Slider tester", 1, 5000, 2000)
-    seedData = st.sidebar.slider("Seed Data",1,10,10)
-    synData = st.sidebar.slider("Synthetic Data",1,4000,4000)
+    seedData = st.sidebar.slider("Seed Data",1,5,5)
+    synData = st.sidebar.slider("Synthetic Data",1,5,5)
     left_column, right_column = st.sidebar.columns(2)
     with left_column:
         st.sidebar.button("Generate GANs")
@@ -42,7 +42,7 @@ with st.container():
     st.subheader("Metrics")
     st.write(seedData , "real images")
     st.write(synData ,"synthetic images")
-    st.write("---- GAN images")
+    st.write(seedData*synData,"GAN images")
     st.write("Generated in - minutes and - seconds")
         
 
@@ -69,9 +69,9 @@ with st.container():
     k = random.sample(range(1,10), 6)
     for i in range(1,6):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
-        imgTest= imgTest.resize(newsize)
+        #imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
-    st.image(picTest)
+    st.image(picTest, width = 200)
 
     
         
