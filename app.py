@@ -73,6 +73,6 @@ with st.container():
         #imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
     st.image(picTest, width = 200)
-
+#Change placeholder
     
         
