@@ -71,7 +71,7 @@ with st.container():
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
-    st.markdown(picTest.show())
+    st.image(picTest)
         
 
     
