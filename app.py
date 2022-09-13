@@ -67,7 +67,7 @@ with st.container():
     newsize = (200, 200)
     picTest = []
     k = random.sample(range(10), 5)
-    for i in range(0,5):
+    for i in range(1,5):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
