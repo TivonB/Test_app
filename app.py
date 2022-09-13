@@ -66,8 +66,8 @@ with st.container():
     fileTypeName = ".png"
     newsize = (200, 200)
     picTest = []
-    k = random.sample(range(10), 5)
-    for i in range(1,5):
+    k = random.sample(range(10), 6)
+    for i in range(1,6):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
