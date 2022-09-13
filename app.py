@@ -64,7 +64,7 @@ with st.container():
         #st.image(img)
     fileName = "Pic/Test_"
     fileTypeName = ".png"
-    newsize = (300, 300)
+    newsize = (200, 200)
     picTest = []
     k = random.sample(range(10), 5)
     for i in range(1,5):
