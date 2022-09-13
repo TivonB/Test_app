@@ -42,7 +42,8 @@ with st.container():
     st.subheader("Metrics")
     st.write(seedData , "real images")
     st.write(synData ,"synthetic images")
-    st.write(seedData*synData,"GAN images")
+    GANData = seedData*synData
+    st.write(GANData,"GAN images")
     st.write("Generated in - minutes and - seconds")
         
 
@@ -66,8 +67,8 @@ with st.container():
     fileTypeName = ".png"
     newsize = (200, 200)
     picTest = []
-    k = random.sample(range(1,10), 6)
-    for i in range(1,6):
+    k = random.sample(range(1,31), GANData)
+    for i in range(1,GANData):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         #imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
