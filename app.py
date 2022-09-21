@@ -70,6 +70,7 @@ def rando():
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         #imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
+    return picTest
 #Change placeholder
     
         
