@@ -36,7 +36,8 @@ with st.container():
     left_column, right_column = st.sidebar.columns(2)
     with left_column:
         if st.sidebar.button("Generate GANs"):
-            rando()
+            picResult = rando()
+            st.image(picTest, width = 200)
     with right_column:
         st.sidebar.button("Clear Input")
     st.write("---")
@@ -46,24 +47,28 @@ with st.container():
     GANData = seedData*synData
     st.write(GANData,"GAN images")
     st.write("Generated in - minutes and - seconds")
+
+with st.container():
+    st.write("---")
+    if len(picResult) > 0:
+        st.image(picTest, width = 200)
+    else:
+        st.write("no pic")
         
 
         
         
 # ---- MAIN PAGE BOTTOM ----
 def rando():
-    with st.container():
-        st.write("---")
-        fileName = "Pic/Test_"
-        fileTypeName = ".png"
-        newsize = (200, 200)
-        picTest = []
-        k = random.sample(range(1,31), GANData)
-        for i in range(1,GANData):
-            imgTest = Image.open(fileName+str(k[i])+fileTypeName)
-            #imgTest= imgTest.resize(newsize)
-            picTest.append(imgTest)
-        st.image(picTest, width = 200)
+    fileName = "Pic/Test_"
+    fileTypeName = ".png"
+    newsize = (200, 200)
+    picTest = []
+    k = random.sample(range(1,31), GANData)
+    for i in range(1,GANData):
+        imgTest = Image.open(fileName+str(k[i])+fileTypeName)
+        #imgTest= imgTest.resize(newsize)
+        picTest.append(imgTest)
 #Change placeholder
     
         
