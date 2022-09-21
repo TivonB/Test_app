@@ -12,6 +12,17 @@ import random
 picResult = 0
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="GANs Web Interface",layout="wide")
+def rando():
+    fileName = "Pic/Test_"
+    fileTypeName = ".png"
+    newsize = (200, 200)
+    picTest = []
+    k = random.sample(range(1,31), GANData)
+    for i in range(1,GANData):
+        imgTest = Image.open(fileName+str(k[i])+fileTypeName)
+        #imgTest= imgTest.resize(newsize)
+        picTest.append(imgTest)
+    return picTest
 
 # ---- LOAD ASSETS ----
 img = Image.open("Placeholder.png")
@@ -38,7 +49,6 @@ with st.container():
     with left_column:
         if st.sidebar.button("Generate GANs"):
             picResult = rando()
-            st.image(picTest, width = 200)
     with right_column:
         st.sidebar.button("Clear Input")
     st.write("---")
@@ -52,7 +62,7 @@ with st.container():
 with st.container():
     st.write("---")
     if len(picResult) > 0:
-        st.image(picTest, width = 200)
+        st.image(picResult, width = 200)
     else:
         st.write("no pic")
         
@@ -60,17 +70,6 @@ with st.container():
         
         
 # ---- MAIN PAGE BOTTOM ----
-def rando():
-    fileName = "Pic/Test_"
-    fileTypeName = ".png"
-    newsize = (200, 200)
-    picTest = []
-    k = random.sample(range(1,31), GANData)
-    for i in range(1,GANData):
-        imgTest = Image.open(fileName+str(k[i])+fileTypeName)
-        #imgTest= imgTest.resize(newsize)
-        picTest.append(imgTest)
-    return picTest
 #Change placeholder
     
         
