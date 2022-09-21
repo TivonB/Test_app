@@ -48,6 +48,8 @@ with st.container():
     GANData = seedData*synData
     st.write(GANData,"GAN images")
     st.write("Generated in - minutes and - seconds")
+    
+with st.container():
     st.write("---")
     #st.slider("Slider tester", 1, 5000, 2000)
     seedData = st.sidebar.slider("Seed Data",1,5,5)
