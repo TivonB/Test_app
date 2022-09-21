@@ -35,7 +35,8 @@ with st.container():
     synData = st.sidebar.slider("Synthetic Data",1,5,5)
     left_column, right_column = st.sidebar.columns(2)
     with left_column:
-        st.sidebar.button("Generate GANs")
+        if st.sidebar.button("Generate GANs"):
+            rando()
     with right_column:
         st.sidebar.button("Clear Input")
     st.write("---")
@@ -50,29 +51,19 @@ with st.container():
         
         
 # ---- MAIN PAGE BOTTOM ----
-with st.container():
-    st.write("---")
-    #F_left_column, I_left_column, Mid_column, I_right_column, F_right_column = st.columns(5)
-    #with F_left_column:
-        #st.image(img)
-    #with I_left_column:
-        #st.image(img)
-    #with Mid_column:
-        #st.image(img)
-    #with I_right_column:
-        #st.image(img)
-    #with F_right_column:
-        #st.image(img)
-    fileName = "Pic/Test_"
-    fileTypeName = ".png"
-    newsize = (200, 200)
-    picTest = []
-    k = random.sample(range(1,31), GANData)
-    for i in range(1,GANData):
-        imgTest = Image.open(fileName+str(k[i])+fileTypeName)
-        #imgTest= imgTest.resize(newsize)
-        picTest.append(imgTest)
-    st.image(picTest, width = 200)
+def rando():
+    with st.container():
+        st.write("---")
+        fileName = "Pic/Test_"
+        fileTypeName = ".png"
+        newsize = (200, 200)
+        picTest = []
+        k = random.sample(range(1,31), GANData)
+        for i in range(1,GANData):
+            imgTest = Image.open(fileName+str(k[i])+fileTypeName)
+            #imgTest= imgTest.resize(newsize)
+            picTest.append(imgTest)
+        st.image(picTest, width = 200)
 #Change placeholder
     
         
