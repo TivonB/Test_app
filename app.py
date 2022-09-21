@@ -63,10 +63,10 @@ with st.container():
 
 with st.container():
     st.write("---")
-    if len(picResult) > 0:
-        st.image(picResult, width = 200)
-    else:
+    if not picResult:
         st.write("no pic")
+    else:
+        st.image(picResult, width = 200)
         
 
         
