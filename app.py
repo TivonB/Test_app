@@ -9,7 +9,7 @@ import streamlit as st
 from PIL import Image
 import random
 
-picResult = 0
+picResult = []
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="GANs Web Interface",layout="wide")
 def rando(gStop):
@@ -51,7 +51,8 @@ with st.container():
         if st.sidebar.button("Generate GANs"):
             picResult = rando(GANData)
     with right_column:
-        st.sidebar.button("Clear Input")
+        if st.sidebar.button("Clear Input"):
+            picResult = []
     st.write("---")
     st.subheader("Metrics")
     st.write(seedData , "real images")
