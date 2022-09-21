@@ -9,6 +9,7 @@ import streamlit as st
 from PIL import Image
 import random
 
+picResult = 0
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="GANs Web Interface",layout="wide")
 
