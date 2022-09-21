@@ -54,12 +54,21 @@ with st.container():
     #st.slider("Slider tester", 1, 5000, 2000)
     seedData = st.sidebar.slider("Seed Data",1,5,5)
     synData = st.sidebar.slider("Synthetic Data",1,5,5)
+    GANData = seedData*synData
     left_column, right_column = st.sidebar.columns(2)
     with left_column:
         if st.sidebar.button("Generate GANs"):
-            picResult = rando(GANSData)
+            picResult = rando(GANData)
     with right_column:
         st.sidebar.button("Clear Input")
+    st.write("---")
+    st.subheader("Metrics")
+    st.write(seedData , "real images")
+    st.write(synData ,"synthetic images")
+    st.write(GANData,"GAN images")
+    st.write("Generated in - minutes and - seconds")
+        
+    
 
 with st.container():
     st.write("---")
