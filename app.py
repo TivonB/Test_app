@@ -12,13 +12,13 @@ import random
 picResult = 0
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="GANs Web Interface",layout="wide")
-def rando():
+def rando(gStop):
     fileName = "Pic/Test_"
     fileTypeName = ".png"
     newsize = (200, 200)
     picTest = []
-    k = random.sample(range(1,31), GANData)
-    for i in range(1,GANData):
+    k = random.sample(range(1,31), gStop)
+    for i in range(1,gStop):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
         #imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
@@ -42,22 +42,22 @@ with st.container():
 # ---- SIDE SLIDER ---- 
 with st.container():
     st.write("---")
-    #st.slider("Slider tester", 1, 5000, 2000)
-    seedData = st.sidebar.slider("Seed Data",1,5,5)
-    synData = st.sidebar.slider("Synthetic Data",1,5,5)
-    left_column, right_column = st.sidebar.columns(2)
-    with left_column:
-        if st.sidebar.button("Generate GANs"):
-            picResult = rando()
-    with right_column:
-        st.sidebar.button("Clear Input")
-    st.write("---")
     st.subheader("Metrics")
     st.write(seedData , "real images")
     st.write(synData ,"synthetic images")
     GANData = seedData*synData
     st.write(GANData,"GAN images")
     st.write("Generated in - minutes and - seconds")
+    st.write("---")
+    #st.slider("Slider tester", 1, 5000, 2000)
+    seedData = st.sidebar.slider("Seed Data",1,5,5)
+    synData = st.sidebar.slider("Synthetic Data",1,5,5)
+    left_column, right_column = st.sidebar.columns(2)
+    with left_column:
+        if st.sidebar.button("Generate GANs"):
+            picResult = rando(GANSData)
+    with right_column:
+        st.sidebar.button("Clear Input")
 
 with st.container():
     st.write("---")
