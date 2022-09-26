@@ -66,6 +66,7 @@ with st.container():
 
 with st.container():
     st.write("---")
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
     if not picResult:
         st.write("")
     else:
@@ -73,6 +74,27 @@ with st.container():
         for i in range(len(picResult)):
             imgRe= picResult[i].resize(newsize)
             st.image(imgRe)
+            if (i%6==0):
+                with col6:
+                    st.image(imgRe)
+            elif (i%5==0):
+                with col5:
+                    st.image(imgRe)
+            elif (i%4==0):
+                with col4:
+                    st.image(imgRe)
+            elif (i%3==0):
+                with col3:
+                    st.image(imgRe)
+            elif (i%2==0):
+                with col2:
+                    st.image(imgRe)
+            else:
+                with col6:
+                    st.image(imgRe)
+            
+            
+                
             
     #pick_img = st.selectbox("Which image?", 
            #[x for x in range(1, len(picResult))])
