@@ -12,6 +12,11 @@ import os
 import streamlit.components.v1 as components
 
 
+parent_dir = os.path.dirname(os.path.abspath(__file__))
+    build_dir = os.path.join(parent_dir, "frontend/build")
+    _component_func = components.declare_component(
+        "st_clickable_images", path=build_dir
+    )
 
 picResult = []
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -107,8 +112,7 @@ with st.container():
     if not picResult:
         st.write("no pic")
     else:
-        clickable_images(picResult,titles=[f"Image #{str(i)}" for i in range(GANData)],div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-    img_style={"margin": "5px", "height": "200px"},)
+        clickable_images(picResult,titles=[f"Image #{str(i)}" for i in range(GANData)],div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},img_style={"margin": "5px", "height": "200px"},)
     #pick_img = st.selectbox("Which image?", 
            #[x for x in range(1, len(picResult))])
 
