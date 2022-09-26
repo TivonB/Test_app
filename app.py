@@ -9,51 +9,20 @@ import streamlit as st
 from PIL import Image
 import random
 
-
-
-
-
 picResult = []
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="GANs Web Interface",layout="wide")
 def rando(gStop):
     fileName = "Pic/Test_"
     fileTypeName = ".png"
-    newsize = ((200, 200))
+    newsize = (200, 200)
     picTest = []
     k = random.sample(range(1,31), gStop)
     for i in range(1,gStop):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
-        imgTest= imgTest.resize(newsize)
+        #imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
     return picTest
-
-def clickable_images(paths, titles=[], div_style={}, img_style={}, key=None):
-    """Display one or several images that can be clicked on".
-    Parameters
-    ----------
-    paths: list
-        The list of URLS of the images
-    
-    titles: list
-        The (optional) titles of the images
-    
-    div_style: dict
-        A dict with the CSS property/value pairs for the div container
-    img_style: dict
-        A dict with the CSS property/value pairs for the images
-    key: str or None
-        An optional key that uniquely identifies this component. If this is
-        None, and the component's arguments are changed, the component will
-        be re-mounted in the Streamlit frontend and lose its current state.
-    Returns
-    -------
-    int
-        The index of the last image clicked on (or -1 before any click)
-    """
-    component_value = (paths=paths,titles=titles,div_style=div_style,img_style=img_style,key=key,default=-1,)
-
-    return component_value
 
 
 # ---- LOAD ASSETS ----
@@ -98,9 +67,13 @@ with st.container():
 with st.container():
     st.write("---")
     if not picResult:
-        st.write("no pic")
+        st.write("")
     else:
-        clickable_images(picResult,titles=[f"Image #{str(i)}" for i in range(GANData)],div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},img_style={"margin": "5px", "height": "200px"},)
+        newsize = (200, 200)
+        for i in range(len(picResult)):
+            imgRe= picResult[i].resize(newsize)
+            st.image(imgRe)
+            
     #pick_img = st.selectbox("Which image?", 
            #[x for x in range(1, len(picResult))])
 
