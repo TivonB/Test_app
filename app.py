@@ -8,13 +8,10 @@ Created on Thu Sep  8 14:06:02 2022
 import streamlit as st
 from PIL import Image
 import random
-import os
-import streamlit.components.v1 as components
 
 
-parent_dir = os.path.dirname(os.path.abspath(__file__))
-build_dir = os.path.join(parent_dir, "frontend/build")
-_component_func = components.declare_component("st_clickable_images", path=build_dir)
+
+
 
 picResult = []
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -54,7 +51,7 @@ def clickable_images(paths, titles=[], div_style={}, img_style={}, key=None):
     int
         The index of the last image clicked on (or -1 before any click)
     """
-    component_value = _component_func(
+    component_value = (
         paths=paths,
         titles=titles,
         div_style=div_style,
