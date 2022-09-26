@@ -17,7 +17,7 @@ st.set_page_config(page_title="GANs Web Interface",layout="wide")
 def rando(gStop):
     fileName = "Pic/Test_"
     fileTypeName = ".png"
-    newsize = (200, 200)
+    newsize = ((200, 200))
     picTest = []
     k = random.sample(range(1,31), gStop)
     for i in range(1,gStop):
@@ -70,8 +70,7 @@ with st.container():
     if not picResult:
         st.write("no pic")
     else:
-        resized_image2 = picResult.resize((336, 336))
-        st.image(resized_image2)
+        st.image(picResult)
     #pick_img = st.selectbox("Which image?", 
            #[x for x in range(1, len(picResult))])
 
