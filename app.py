@@ -70,27 +70,34 @@ with st.container():
     if not picResult:
         st.write("")
     else:
-        newsize = (200, 200)
+        nextcol = 1
+        newsize = (500, 500)
         for i in range(len(picResult)):
             imgRe= picResult[i].resize(newsize)
-            if (i%6==0 or i == 6):
+            if (nextcol == 6):
                 with col6:
                     st.image(imgRe,caption="Pic/Test_"+str(i))
-            elif (i%5==0 or i == 5):
+                    nextcol = 1
+            elif (nextcol == 5):
                 with col5:
                     st.image(imgRe,caption="Pic/Test_"+str(i))
-            elif (i%4==0 or i == 4):
+                    nextcol = 6
+            elif (nextcol == 4):
                 with col4:
                     st.image(imgRe,caption="Pic/Test_"+str(i))
-            elif (i%3==0 or i == 3):
+                    nextcol = 5
+            elif (nextcol == 3):
                 with col3:
                     st.image(imgRe,caption="Pic/Test_"+str(i))
-            elif (i%2==0 or i == 2):
+                    nextcol = 4
+            elif (nextcol == 2):
                 with col2:
                     st.image(imgRe,caption="Pic/Test_"+str(i))
-            elif (i%1==0 or i == 1):
+                    nextcol = 3
+            elif (nextcol == 1):
                 with col1:
-                    st.image(imgRe,caption="Pic/Test_"+str(i))
+                    st.image(imgRe,caption="Test_"+str(i))
+                    nextcol = 2
             
             
                 
