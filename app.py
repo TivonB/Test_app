@@ -8,7 +8,7 @@ Created on Thu Sep  8 14:06:02 2022
 import streamlit as st
 from PIL import Image
 import random
-from st_clickable_images import clickable_images
+import st_clickable_images as stc
 
 picResult = []
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
