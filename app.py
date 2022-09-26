@@ -74,23 +74,23 @@ with st.container():
         for i in range(len(picResult)):
             imgRe= picResult[i].resize(newsize)
             st.image(imgRe)
-            if (i%6==0):
+            if (i%6==0 or i == 6):
                 with col6:
                     st.image(imgRe)
-            elif (i%5==0):
+            elif (i%5==0 or i == 5):
                 with col5:
                     st.image(imgRe)
-            elif (i%4==0):
+            elif (i%4==0 or i == 4):
                 with col4:
                     st.image(imgRe)
-            elif (i%3==0):
+            elif (i%3==0 or i == 3):
                 with col3:
                     st.image(imgRe)
-            elif (i%2==0):
+            elif (i%2==0 or i == 2):
                 with col2:
                     st.image(imgRe)
-            else:
-                with col6:
+            elif (i%1==0 or i == 1):
+                with col1:
                     st.image(imgRe)
             
             
