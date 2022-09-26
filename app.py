@@ -70,9 +70,10 @@ with st.container():
     if not picResult:
         st.write("no pic")
     else:
-        st.image(picResult)
-    pick_img = st.selectbox("Which image?", 
-           [x for x in range(1, len(picResult))])
+        resized_image2 = picResult.resize((336, 336))
+        st.image(resized_image2)
+    #pick_img = st.selectbox("Which image?", 
+           #[x for x in range(1, len(picResult))])
 
         
 
