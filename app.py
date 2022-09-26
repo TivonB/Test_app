@@ -13,10 +13,8 @@ import streamlit.components.v1 as components
 
 
 parent_dir = os.path.dirname(os.path.abspath(__file__))
-    build_dir = os.path.join(parent_dir, "frontend/build")
-    _component_func = components.declare_component(
-        "st_clickable_images", path=build_dir
-    )
+build_dir = os.path.join(parent_dir, "frontend/build")
+_component_func = components.declare_component("st_clickable_images", path=build_dir)
 
 picResult = []
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
