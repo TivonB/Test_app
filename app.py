@@ -8,7 +8,7 @@ Created on Thu Sep  8 14:06:02 2022
 import streamlit as st
 from PIL import Image
 import random
-from streamlit_image_comparison import image_comparison
+
 
 
 picResult = []
@@ -39,7 +39,8 @@ with st.container():
 # ---- MAIN PAGE TOP ----
 with st.container():
     st.write("---")
-    st.image(img,use_column_width=True)
+    resized_image = img.resize((336, 336))
+    st.image(resized_image)
     
 # ---- SIDE SLIDER ---- 
 with st.container():
