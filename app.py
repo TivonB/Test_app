@@ -70,7 +70,7 @@ with st.container():
         st.write("no pic")
     else:
         st.image(picResult)
-    pick_img = st.radio("Which image?", 
+    pick_img = st.selectbox("Which image?", 
            [x for x in range(1, len(picResult))])
 
         
