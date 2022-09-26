@@ -51,14 +51,7 @@ def clickable_images(paths, titles=[], div_style={}, img_style={}, key=None):
     int
         The index of the last image clicked on (or -1 before any click)
     """
-    component_value = (
-        paths=paths,
-        titles=titles,
-        div_style=div_style,
-        img_style=img_style,
-        key=key,
-        default=-1,
-    )
+    component_value = (paths=paths,titles=titles,div_style=div_style,img_style=img_style,key=key,default=-1,)
 
     return component_value
 
