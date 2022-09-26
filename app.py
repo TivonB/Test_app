@@ -75,22 +75,22 @@ with st.container():
             imgRe= picResult[i].resize(newsize)
             if (i%6==0 or i == 6):
                 with col6:
-                    st.image(imgRe)
+                    st.image(imgRe,caption="Pic/Test_"+i)
             elif (i%5==0 or i == 5):
                 with col5:
-                    st.image(imgRe)
+                    st.image(imgRe,caption="Pic/Test_"+i)
             elif (i%4==0 or i == 4):
                 with col4:
-                    st.image(imgRe)
+                    st.image(imgRe,caption="Pic/Test_"+i)
             elif (i%3==0 or i == 3):
                 with col3:
-                    st.image(imgRe)
+                    st.image(imgRe,caption="Pic/Test_"+i)
             elif (i%2==0 or i == 2):
                 with col2:
-                    st.image(imgRe)
+                    st.image(imgRe,caption="Pic/Test_"+i)
             elif (i%1==0 or i == 1):
                 with col1:
-                    st.image(imgRe)
+                    st.image(imgRe,caption="Pic/Test_"+i)
             
             
                 
