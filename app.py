@@ -8,7 +8,8 @@ Created on Thu Sep  8 14:06:02 2022
 import streamlit as st
 from PIL import Image
 import random
-import st_clickable_images as stc
+
+
 
 picResult = []
 #Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -69,10 +70,9 @@ with st.container():
         st.write("no pic")
     else:
         st.image(picResult)
-    clicked = stc.clickable_images([picResult],titles=[f"Image #{str(i)}" for i in range(5)],div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-    img_style={"margin": "5px", "height": "200px"},)
-    
-    st.markdown(f"Image #{clicked} clicked" if clicked > -1 else "No image clicked")
+    pick_img = st.radio("Which image?", 
+           [x for x in range(1, len(picResult))])
+
         
 
         
