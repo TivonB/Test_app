@@ -76,7 +76,6 @@ with st.container():
             if (i%6==0 or i == 6):
                 with col6:
                     st.image(imgRe)
-                    break
             elif (i%5==0 or i == 5):
                 with col5:
                     st.image(imgRe)
