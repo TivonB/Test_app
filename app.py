@@ -73,10 +73,10 @@ with st.container():
         newsize = (200, 200)
         for i in range(len(picResult)):
             imgRe= picResult[i].resize(newsize)
-            st.image(imgRe)
             if (i%6==0 or i == 6):
                 with col6:
                     st.image(imgRe)
+                    break
             elif (i%5==0 or i == 5):
                 with col5:
                     st.image(imgRe)
