@@ -8,7 +8,7 @@ Created on Thu Sep  8 14:06:02 2022
 import streamlit as st
 from PIL import Image
 import random
-from st_clickable_images import clickable_images
+
 
 
 picResult = []
@@ -25,6 +25,41 @@ def rando(gStop):
         imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
     return picTest
+
+def clickable_images(paths, titles=[], div_style={}, img_style={}, key=None):
+    """Display one or several images that can be clicked on".
+    Parameters
+    ----------
+    paths: list
+        The list of URLS of the images
+    
+    titles: list
+        The (optional) titles of the images
+    
+    div_style: dict
+        A dict with the CSS property/value pairs for the div container
+    img_style: dict
+        A dict with the CSS property/value pairs for the images
+    key: str or None
+        An optional key that uniquely identifies this component. If this is
+        None, and the component's arguments are changed, the component will
+        be re-mounted in the Streamlit frontend and lose its current state.
+    Returns
+    -------
+    int
+        The index of the last image clicked on (or -1 before any click)
+    """
+    component_value = _component_func(
+        paths=paths,
+        titles=titles,
+        div_style=div_style,
+        img_style=img_style,
+        key=key,
+        default=-1,
+    )
+
+    return component_value
+
 
 # ---- LOAD ASSETS ----
 img = Image.open("Placeholder.png")
@@ -70,7 +105,8 @@ with st.container():
     if not picResult:
         st.write("no pic")
     else:
-        st.image(picResult)
+        clickable_images(picResult,titles=[f"Image #{str(i)}" for i in range(GANData)],div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+    img_style={"margin": "5px", "height": "200px"},)
     #pick_img = st.selectbox("Which image?", 
            #[x for x in range(1, len(picResult))])
 
