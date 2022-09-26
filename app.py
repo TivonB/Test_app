@@ -20,7 +20,7 @@ def rando(gStop):
     k = random.sample(range(1,31), gStop)
     for i in range(1,gStop):
         imgTest = Image.open(fileName+str(k[i])+fileTypeName)
-        #imgTest= imgTest.resize(newsize)
+        imgTest= imgTest.resize(newsize)
         picTest.append(imgTest)
     return picTest
 
@@ -67,7 +67,7 @@ with st.container():
     if not picResult:
         st.write("no pic")
     else:
-        st.image(picResult, width = 200)
+        st.image(picResult)
         
 
         
