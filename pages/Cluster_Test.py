@@ -13,9 +13,9 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
     image_list.append(im)
 st.image(image_list)
 
-col, row = im.size
 count = 0
-for img in im:
+for img in image_list:
+  col, row = img.size
   Rvalue = 0
   Gvalue = 0
   Bvalue = 0
