@@ -22,8 +22,7 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
 st.image(image_list)
 
 count = 0
-for img in image_list:
-  
+#for img in image_list:  
 #  temp_pixel = img.getpixel((0,0))
 #  if type(temp_pixel) is tuple:
 #       num = len(temp_pixel)
