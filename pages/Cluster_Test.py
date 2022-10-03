@@ -57,15 +57,15 @@ st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
 newsize = (224,224)
 for filename in glob.glob('Flowers/*.png'): #assuming gif
-    im=Image.open(filename).convert('RGB')
+    im=Image.open(filename)
+    im = im.convert('RGB')
+    np_array = np.array(image.getdata())
+    reshaped = np_array.reshape((224, 224, 3))
     #im = im.resize(newsize)
-    image_list.append(im)
+    #image_list.append(im)
 
 #st.image(image_list)
-imgList = np.array(image_list[0])
-st.write("Shape: ", imgList.shape)
-reshape_imgList = imgList.reshape(1,224,224,3)
-st.write("ReShape: ", imgList.shape)
+st.write("ReShape: ", reshaped[0].shape)
 count = 0
 #for img in image_list:  
 #  temp_pixel = img.getpixel((0,0))
