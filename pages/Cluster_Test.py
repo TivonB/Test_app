@@ -6,8 +6,9 @@ import glob
 
 st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
+newsize = (200,200)
 for filename in glob.glob('Flowers/*.png'): #assuming gif
     im=Image.open(filename)
-    im = im.resize((200,200))
+    im = im.resize(newsize)
     image_list.append(im)
 st.image(image_list)
