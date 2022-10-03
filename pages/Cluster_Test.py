@@ -12,13 +12,15 @@ import pickle
 
 st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
-newsize = (200,200)
+newsize = (224,224)
 for filename in glob.glob('Flowers/*.png'): #assuming gif
     im=Image.open(filename)
-    im = im.resize(newsize)
+    #im = im.resize(newsize)
     image_list.append(im)
-st.image(image_list)
 
+#st.image(image_list)
+imgList = np.array(image_list[0])
+st.write("Shape: ", imgList.shape)
 count = 0
 #for img in image_list:  
 #  temp_pixel = img.getpixel((0,0))
