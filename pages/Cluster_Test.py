@@ -3,7 +3,6 @@ from PIL import Image
 import glob
 
 # for everything else
-import os
 import numpy as np
 from random import randint
 import pandas as pd
