@@ -5,7 +5,6 @@ import glob
 # for everything else
 import os
 import numpy as np
-import matplotlib.pyplot as plt
 from random import randint
 import pandas as pd
 import pickle
