@@ -64,8 +64,8 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
 #st.image(image_list)
 imgList = np.array(image_list[0])
 st.write("Shape: ", imgList.shape)
-#imgList = np.array(image_list[0].resize(224,224))
-#st.write("ReShape: ", imgList.shape)
+reshape_imgList = imgList.reshape(1,224,224,3)
+st.write("ReShape: ", imgList.shape)
 count = 0
 #for img in image_list:  
 #  temp_pixel = img.getpixel((0,0))
