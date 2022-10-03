@@ -18,7 +18,7 @@ for img in image_list:
   temp_pixel = img.getpixel((0,0))
   if type(temp_pixel) is tuple:
        num = len(temp_pixel)
-   else:
+  else:
        num = 1
   col, row = img.size
   if num == 1:
