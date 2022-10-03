@@ -3,15 +3,56 @@ from PIL import Image
 import glob
 
 # for everything else
-import sklearn
-from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 import numpy as np
 from random import randint
 import pandas as pd
 import pickle
-                   
 
+#---Kmeans Function ---
+class KMean:
+    def __init__(self,data,k,steps):
+        self.data= data
+        self.k = k
+        self.steps = steps
+        self.centers = np.array([self.data[i] for i in range(self.k)])
+        self.colors = np.array(np.random.randint(0, 255, size =(self.k, 4)))/255
+        self.colors[:,3]=1
 
+    def distance(self,p1,p2):
+        return np.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
+
+    def initialize(self):
+        """
+            Initialize the Clusters.
+        """
+        self.clusters = {i: [] for i in range(self.k)}
+        plt.scatter(self.centers[:, 0], self.centers[:, 1], s=200, color=self.colors)
+        plt.scatter(self.data[:, 0], self.data[:,1],marker="*", s=100)
+        plt.title("Initialize")
+        plt.show()
+
+    def fit(self):
+        for step in range(self.steps):
+            self.clusters = {i: [] for i in range(self.k)}
+
+            for point in self.data:
+                d= np.array([self.distance(point,c) for c in self.centers])
+                c = np.argmin(d)
+                self.clusters[c].append(point)
+
+            self.clusters= {i:np.array(v) for i,v in self.clusters.items()}
+            self.centers = np.array([self.clusters[i].mean(axis=0) for i in range(self.k)])
+            self.visualize(step= step)
+
+    def visualize(self,step):
+        plt.title(f"Step : {step}")
+        [plt.scatter(self.clusters[i][:, 0], self.clusters[i][:, 1], marker="*", s=100,
+                    color = self.colors[i]) for i in range(self.k)]
+        plt.scatter(self.centers[:, 0], self.centers[:, 1], s=200, color=self.colors)
+        plt.show()
+
+# --- Cluster Test ----
 st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
 newsize = (224,224)
@@ -23,8 +64,8 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
 #st.image(image_list)
 imgList = np.array(image_list[0])
 st.write("Shape: ", imgList.shape)
-imgList = np.array(image_list[0].resize(224,224))
-st.write("ReShape: ", imgList.shape)
+#imgList = np.array(image_list[0].resize(224,224))
+#st.write("ReShape: ", imgList.shape)
 count = 0
 #for img in image_list:  
 #  temp_pixel = img.getpixel((0,0))
