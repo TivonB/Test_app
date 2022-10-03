@@ -3,6 +3,8 @@ from PIL import Image
 import glob
 
 # for everything else
+import sklearn
+from sklearn.cluster import KMeans
 import numpy as np
 from random import randint
 import pandas as pd
