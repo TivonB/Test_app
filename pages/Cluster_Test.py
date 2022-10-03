@@ -21,7 +21,7 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
 #st.image(image_list)
 imgList = np.array(image_list[0])
 st.write("Shape: ", imgList.shape)
-reshaped_imgList = imgList.reshape(1,224,224,3)
+reshaped_imgList = imgList.reshape(224,224,3)
 st.write("ReShape: ", reshaped_imgList.shape)
 count = 0
 #for img in image_list:  
