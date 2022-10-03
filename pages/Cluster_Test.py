@@ -57,7 +57,7 @@ st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
 newsize = (224,224)
 for filename in glob.glob('Flowers/*.png'): #assuming gif
-    im=Image.open(filename)
+    im=Image.open(filename).convert('RGB')
     #im = im.resize(newsize)
     image_list.append(im)
 
