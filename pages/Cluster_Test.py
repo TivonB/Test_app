@@ -38,20 +38,20 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
     image_list.append(im)
 
 #def image_feature(direc):
-    model = InceptionV3(weights='imagenet', include_top=False)
-    features = [];
-    img_name = [];
-    for i in range(direc):
-        fname='cluster'+'/'+i
-        img=image.load_img(fname,target_size=(224,224))
-        x = img_to_array(img)
-        x=np.expand_dims(x,axis=0)
-        x=preprocess_input(x)
-        feat=model.predict(x)
-        feat=feat.flatten()
-        features.append(feat)
-        img_name.append(i)
-    return features,img_name
+    #model = InceptionV3(weights='imagenet', include_top=False)
+    #features = [];
+    #img_name = [];
+    #for i in range(direc):
+        #fname='cluster'+'/'+i
+        #img=image.load_img(fname,target_size=(224,224))
+        #x = img_to_array(img)
+        #x=np.expand_dims(x,axis=0)
+        #x=preprocess_input(x)
+        #feat=model.predict(x)
+        #feat=feat.flatten()
+        #features.append(feat)
+        #img_name.append(i)
+    #return features,img_name
 
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
