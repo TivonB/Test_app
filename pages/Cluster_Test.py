@@ -59,12 +59,13 @@ newsize = (224,224)
 for filename in glob.glob('Flowers/*.png'): #assuming gif
     im=Image.open(filename)
     im = im.convert('RGB')
-    img=im.reshape((im.shape[1]*im.shape[0],3))
+    img = np.array(im)
+    imgArr=img.reshape((img.shape[1]*img.shape[0],3))
     #im = im.resize(newsize)
     #image_list.append(im)
 
 #st.image(image_list)
-st.write("ReShape: ", reshaped.shape)
+st.write("ReShape: ", imgArr.shape)
 count = 0
 #for img in image_list:  
 #  temp_pixel = img.getpixel((0,0))
