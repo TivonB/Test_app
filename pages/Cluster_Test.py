@@ -10,9 +10,10 @@ import pandas as pd
 import pickle
 
 # for loading/processing the images  
-#from keras.preprocessing.image import load_img
-#from keras.preprocessing.image import img_to_array 
-#from keras.applications.vgg16 import preprocess_input 
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+from tensorflow.keras.applications.inception_v3 import preprocess_input
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import img_to_array
 
 # models 
 from keras.applications.vgg16 import VGG16 
@@ -42,9 +43,9 @@ def image_feature(image_list):
     features = [];
     img_name = [];
     for i in range(image_list):
-        x = keras.preprocessing.image.img_to_array(image_list)
+        x = img_to_array(image_list)
         x=np.expand_dims(x,axis=0)
-        x= keras.preprocessing.image.preprocess_input(x)
+        x= preprocess_input(x)
         feat=model.predict(x)
         feat=feat.flatten()
         features.append(feat)
