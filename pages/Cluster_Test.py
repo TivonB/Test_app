@@ -58,7 +58,6 @@ clusters = KMeans(k, random_state = 40)
 clusters.fit(img_features)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
 image_cluster["clusterid"] = clusters.labels_
-image_cluster
 for i in range(len(image_cluster)):
     if image_cluster['clusterid'][i]==0:
         st.image(image_list[i])
