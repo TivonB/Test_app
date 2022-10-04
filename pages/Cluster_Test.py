@@ -11,8 +11,8 @@ import pickle
 
 # for loading/processing the images  
 #from keras.preprocessing.image import load_img
-#from keras.preprocessing.image import img_to_array 
-#from keras.applications.vgg16 import preprocess_input 
+from keras.preprocessing.image import img_to_array 
+from keras.applications.vgg16 import preprocess_input 
 
 # models 
 from keras.applications.vgg16 import VGG16 
@@ -37,33 +37,21 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
     #im = im.resize(newsize)
     image_list.append(im)
 
-model = VGG16()
-# remove the output layer
-model = Model(inputs=model.inputs, outputs=model.layers[-2].output)
-
-def extract_features(file, model):
-    # load the image as a 224x224 array
-    #img = Image.open(file)
-    # convert from 'PIL.Image.Image' to numpy array
-    img = np.array(file) 
-    # reshape the data for the model reshape(num_of_samples, dim 1, dim 2, channels)
-    #reshaped_img = img.reshape(1,224,224,3) 
-    # prepare image for model
-    #imgx = preprocess_input(reshaped_img)
-    # get the feature vector
-    features = model.predict(img, use_multiprocessing=True)
-    return features
-
-for flower in image_list:
-    # try to extract the features and update the dictionary
-    feat = extract_features(flower,model)
-    data[flower] = feat
-
-filenames = np.array(list(data.keys()))
-
-# get a list of just the features
-feat = np.array(list(data.values()))
-st.write(feat.shape)
+#def image_feature(direc):
+    model = InceptionV3(weights='imagenet', include_top=False)
+    features = [];
+    img_name = [];
+    for i in range(direc):
+        fname='cluster'+'/'+i
+        img=image.load_img(fname,target_size=(224,224))
+        x = img_to_array(img)
+        x=np.expand_dims(x,axis=0)
+        x=preprocess_input(x)
+        feat=model.predict(x)
+        feat=feat.flatten()
+        features.append(feat)
+        img_name.append(i)
+    return features,img_name
 
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
