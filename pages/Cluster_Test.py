@@ -10,9 +10,9 @@ import pandas as pd
 import pickle
 
 # for loading/processing the images  
-import keras.preprocessing.image.load_img as LoadImg 
-from keras.preprocessing.image import img_to_array 
-from keras.applications.vgg16 import preprocess_input 
+#from keras.preprocessing.image import load_img
+#from keras.preprocessing.image import img_to_array 
+#from keras.applications.vgg16 import preprocess_input 
 
 # models 
 from keras.applications.vgg16 import VGG16 
