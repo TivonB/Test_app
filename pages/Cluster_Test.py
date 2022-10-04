@@ -26,13 +26,13 @@ from sklearn.decomposition import PCA
 
 # --- Cluster Test ----
 st.set_page_config(page_title="Cluster", layout="wide")
-fileName = "Pic/Test_"
+fileName = "Flowers/flower_"
 fileTypeName = ".png"
 image_list = []
 newsize = (224,224)
 #for filename in glob.glob('Flowers/*.png'): #assuming gif
 for i in range(25):
-    im=Image.open(fileName+str(k[i])+fileTypeName)
+    im=Image.open(fileName+str(i)+fileTypeName)
     im = im.convert('RGB')
     img = np.array(im)
     imgArr=img.reshape((img.shape[1]*img.shape[0],3))
