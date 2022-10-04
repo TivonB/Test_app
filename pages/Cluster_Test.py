@@ -8,6 +8,7 @@ import numpy as np
 from random import randint
 import pandas as pd
 import pickle
+from sklearn.cluster import KMeans
 
 #---Kmeans Function ---
 class KMean:
