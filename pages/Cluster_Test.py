@@ -43,20 +43,20 @@ model = Model(inputs=model.inputs, outputs=model.layers[-2].output)
 
 def extract_features(file, model):
     # load the image as a 224x224 array
-    img = load_img(file, target_size=(224,224))
+    img = image.open(file)
     # convert from 'PIL.Image.Image' to numpy array
     img = np.array(img) 
     # reshape the data for the model reshape(num_of_samples, dim 1, dim 2, channels)
-    reshaped_img = img.reshape(1,224,224,3) 
+    #reshaped_img = img.reshape(1,224,224,3) 
     # prepare image for model
-    imgx = preprocess_input(reshaped_img)
+    #imgx = preprocess_input(reshaped_img)
     # get the feature vector
-    features = model.predict(imgx, use_multiprocessing=True)
+    features = model.predict(img, use_multiprocessing=True)
     return features
 
 for flower in image_list:
     # try to extract the features and update the dictionary
-    feat = extract_features(flower,model)
+    feat = extract_features(image_list,model)
     data[flower] = feat
 
 filenames = np.array(list(data.keys()))
