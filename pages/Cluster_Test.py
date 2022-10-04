@@ -54,12 +54,12 @@ def image_feature(image_list):
     return features,img_name
 
 img_features,img_name = image_feature(image_list)
-pca = PCA(n_components=100, random_state=22)
-pca.fit(img_features)
-x = pca.transform(img_features)
+#pca = PCA(n_components=100, random_state=22)
+#pca.fit(img_features)
+#x = pca.transform(img_features)
 k = 7
 clusters = KMeans(k, random_state = 22)
-clusters.fit(x)
+clusters.fit(img_features)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
 image_cluster["clusterid"] = clusters.labels_
 row1, row2, row3, row4, row5, row6, row7 = 0,0,0,0,0,0,0
