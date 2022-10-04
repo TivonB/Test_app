@@ -43,7 +43,7 @@ model = Model(inputs=model.inputs, outputs=model.layers[-2].output)
 
 def extract_features(file, model):
     # load the image as a 224x224 array
-    img = image.open(file)
+    img = Image.open(file)
     # convert from 'PIL.Image.Image' to numpy array
     img = np.array(img) 
     # reshape the data for the model reshape(num_of_samples, dim 1, dim 2, channels)
