@@ -39,7 +39,8 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
     image_list.append(im)
 
 def image_feature(image_list):
-    model = InceptionV3(weights='imagenet', include_top=False)
+    model = VGG16()
+    model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
     for i in range(len(image_list)):
