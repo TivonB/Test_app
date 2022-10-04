@@ -37,10 +37,14 @@ for filename in glob.glob('Flowers/*.png'): #assuming gif
     #im = im.resize(newsize)
     image_list.append(im)
 
-st.image(image_list)
+model = VGG16()
+# remove the output layer
+model = Model(inputs=model.inputs, outputs=model.layers[-2].output)
+features = model.predict(image)
+st.write(features.shape)
     
 #st.image(image_list)
-st.write("ReShape: ", imgArr.shape)
+#st.write("ReShape: ", imgArr.shape)
 count = 0
 #for img in image_list:  
 #  temp_pixel = img.getpixel((0,0))
