@@ -52,7 +52,16 @@ def image_feature(image_list):
         img_name.append(i)
     return features,img_name
 
-image_feature(image_list)
+img_features,img_name = image_feature(image_list)
+k = 7
+clusters = KMeans(k, random_state = 40)
+clusters.fit(img_features)
+image_cluster = pd.DataFrame(img_name,columns=['image'])
+image_cluster["clusterid"] = clusters.labels_
+image_cluster
+for i in range(len(image_cluster)):
+    if image_cluster['clusterid'][i]==0:
+        st.image('cluster', image_cluster['image'][i]), 'Flower')
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
 count = 0
