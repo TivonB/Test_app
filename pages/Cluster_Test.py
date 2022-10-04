@@ -11,8 +11,8 @@ import pickle
 
 # for loading/processing the images  
 #from keras.preprocessing.image import load_img
-from keras.preprocessing.image import img_to_array 
-from keras.applications.vgg16 import preprocess_input 
+#from keras.preprocessing.image import img_to_array 
+#from keras.applications.vgg16 import preprocess_input 
 
 # models 
 from keras.applications.vgg16 import VGG16 
@@ -31,28 +31,27 @@ newsize = (224,224)
 for filename in glob.glob('Flowers/*.png'): #assuming gif
     im=Image.open(filename)
     im = im.convert('RGB')
-    img = np.array(im)
-    imgArr=img.reshape((img.shape[1]*img.shape[0],3))
+    #img = np.array(im)
+    #imgArr=img.reshape((img.shape[1]*img.shape[0],3))
     
-    #im = im.resize(newsize)
+    im = im.resize(newsize)
     image_list.append(im)
 
-#def image_feature(direc):
-    #model = InceptionV3(weights='imagenet', include_top=False)
-    #features = [];
-    #img_name = [];
-    #for i in range(direc):
-        #fname='cluster'+'/'+i
-        #img=image.load_img(fname,target_size=(224,224))
-        #x = img_to_array(img)
-        #x=np.expand_dims(x,axis=0)
-        #x=preprocess_input(x)
-        #feat=model.predict(x)
-        #feat=feat.flatten()
-        #features.append(feat)
-        #img_name.append(i)
-    #return features,img_name
+def image_feature(image_list):
+    model = InceptionV3(weights='imagenet', include_top=False)
+    features = [];
+    img_name = [];
+    for i in range(image_list):
+        x = keras.preprocessing.image.img_to_array(image_list)
+        x=np.expand_dims(x,axis=0)
+        x= keras.preprocessing.image.preprocess_input(x)
+        feat=model.predict(x)
+        feat=feat.flatten()
+        features.append(feat)
+        img_name.append(i)
+    return features,img_name
 
+image_feature(image_list)
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
 count = 0
