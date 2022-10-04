@@ -42,8 +42,8 @@ def image_feature(image_list):
     model = InceptionV3(weights='imagenet', include_top=False)
     features = [];
     img_name = [];
-    for i in range(image_list):
-        x = img_to_array(image_list)
+    for i in range(len(image_list)):
+        x = img_to_array(image_list[i])
         x=np.expand_dims(x,axis=0)
         x= preprocess_input(x)
         feat=model.predict(x)
