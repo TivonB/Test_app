@@ -61,7 +61,7 @@ image_cluster["clusterid"] = clusters.labels_
 image_cluster
 for i in range(len(image_cluster)):
     if image_cluster['clusterid'][i]==0:
-        st.image('cluster', image_cluster['image'][i]), 'Flower')
+        st.image(('cluster', image_cluster['image'][i]), 'Flower')
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
 count = 0
