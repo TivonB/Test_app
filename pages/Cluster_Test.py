@@ -56,7 +56,7 @@ def extract_features(file, model):
 
 for flower in image_list:
     # try to extract the features and update the dictionary
-    feat = extract_features(image_list,model)
+    feat = extract_features(image_list[flower],model)
     data[flower] = feat
 
 filenames = np.array(list(data.keys()))
