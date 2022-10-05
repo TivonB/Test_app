@@ -58,7 +58,7 @@ img_features,img_name = image_feature(image_list)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
 k = 7
-clusters = KMeans(k, random_state = 22)
+clusters = KMeans(k, random_state = 0)
 clusters.fit(img_features)
 st.write(clusters.labels_)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
