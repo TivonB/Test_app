@@ -54,6 +54,7 @@ def image_feature(image_list):
     return features,img_name
 
 img_features,img_name = image_feature(image_list)
+st.write(img_features)
 #pca = PCA(n_components=100, random_state=22)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
@@ -63,42 +64,42 @@ clusters.fit(img_features)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
 image_cluster["clusterid"] = clusters.labels_
 row1, row2, row3, row4, row5, row6, row7 = 0,0,0,0,0,0,0
-for i in range(len(image_cluster)):
-    if image_cluster['clusterid'][i]==0:
-        if row1 == 0:
-            st.write("Cluster 1")
-            row1+=1
-        st.image(image_list[i])
-    elif image_cluster['clusterid'][i]==1:
-        if row2 == 0:
-            st.write("Cluster 2")
-            row2+=1
-        st.image(image_list[i])
-    elif image_cluster['clusterid'][i]==2:
-        if row3 == 0:
-            st.write("Cluster 3")
-            row3+=1
-        st.image(image_list[i])
-    elif image_cluster['clusterid'][i]==3:
-        if row4 == 0:
-            st.write("Cluster 4")
-            row4+=1
-        st.image(image_list[i])
-    elif image_cluster['clusterid'][i]==4:
-        if row5 == 0:
-            st.write("Cluster 5")
-            row5+=1
-        st.image(image_list[i])
-    elif image_cluster['clusterid'][i]==5:
-        if row6 == 0:
-            st.write("Cluster 6")
-            row6+=1
-        st.image(image_list[i])
-    elif image_cluster['clusterid'][i]==6:
-        if row7 == 0:
-            st.write("Cluster 7")
-            row7+=1
-        st.image(image_list[i])
+#for i in range(len(image_cluster)):
+    #if image_cluster['clusterid'][i]==0:
+        #if row1 == 0:
+            #st.write("Cluster 1")
+            #row1+=1
+        #st.image(image_list[i])
+    #elif image_cluster['clusterid'][i]==1:
+        #if row2 == 0:
+            #st.write("Cluster 2")
+            #row2+=1
+        #st.image(image_list[i])
+    #elif image_cluster['clusterid'][i]==2:
+        #if row3 == 0:
+            #st.write("Cluster 3")
+            #row3+=1
+        #st.image(image_list[i])
+    #elif image_cluster['clusterid'][i]==3:
+        #if row4 == 0:
+            #st.write("Cluster 4")
+            #row4+=1
+        #st.image(image_list[i])
+    #elif image_cluster['clusterid'][i]==4:
+        #if row5 == 0:
+            #st.write("Cluster 5")
+            #row5+=1
+        #st.image(image_list[i])
+    #elif image_cluster['clusterid'][i]==5:
+        #if row6 == 0:
+            #st.write("Cluster 6")
+            #row6+=1
+        #st.image(image_list[i])
+    #elif image_cluster['clusterid'][i]==6:
+        #if row7 == 0:
+            #st.write("Cluster 7")
+            #row7+=1
+        #st.image(image_list[i])
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
 count = 0
