@@ -60,7 +60,7 @@ img_features,img_name = image_feature(image_list)
 k = 7
 clusters = KMeans(k, random_state = 22)
 clusters.fit(img_features)
-st.write(cluster.labels_)
+st.write(clusters.labels_)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
 image_cluster["clusterid"] = clusters.labels_
 row1, row2, row3, row4, row5, row6, row7 = 0,0,0,0,0,0,0
