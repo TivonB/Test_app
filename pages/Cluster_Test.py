@@ -29,7 +29,7 @@ from sklearn.decomposition import PCA
 st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
 newsize = (224,224)
-for filename in glob.glob('Flowers/*.png'): #assuming gif
+for filename in glob.glob('Weather/*.png'): #assuming gif
     im=Image.open(filename)
     im = im.convert('RGB')
     #img = np.array(im)
@@ -57,7 +57,7 @@ img_features,img_name = image_feature(image_list)
 #pca = PCA(n_components=100, random_state=22)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
-k = 7
+k = 5
 clusters = KMeans(k, random_state = 0)
 clusters.fit(img_features)
 st.write(clusters.labels_)
