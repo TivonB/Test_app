@@ -53,7 +53,7 @@ def image_feature(image_list):
         img_name.append(i)
     return features,img_name
 
-#img_features,img_name = image_feature(image_list)
+img_features,img_name = image_feature(image_list)
 #pca = PCA(n_components=100, random_state=22)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
