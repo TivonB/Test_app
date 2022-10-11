@@ -40,7 +40,7 @@ for filename in glob.glob('Weather/*.png'): #assuming gif
 
 def image_feature(image_list):
     model = VGG16()
-    model = Model(inputs = model.inputs, outputs = model.layers[-5].output)
+    model = Model(inputs = model.inputs, outputs = model.layers[-7].output)
     features = [];
     img_name = [];
     for i in range(len(image_list)):
