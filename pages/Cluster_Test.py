@@ -39,7 +39,7 @@ for filename in glob.glob('Weather/*.png'): #assuming gif
     image_list.append(im)
 
 def image_feature(image_list):
-    model = InceptionV3(weights='imagenet', include_top=False)
+    model = VGG16()
     model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
@@ -58,7 +58,7 @@ img_features,img_name = image_feature(image_list)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
 k = 5
-clusters = KMeans(k, random_state = 22)
+clusters = KMeans(k, n_jobs=-1, random_state = 22)
 clusters.fit(img_features)
 st.write(clusters.labels_)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
