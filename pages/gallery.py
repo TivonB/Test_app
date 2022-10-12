@@ -45,18 +45,24 @@ with st.container():
                     st.image(picture_result)
                     nextcol = 2
         return 0
-                   
 
-def picGen(start_index):
-    st.write(start_index)
-    fileName = "Pic/Test_"
-    fileTypeName = ".png"
+image_list = []
+newsize = (224,224)
+for filename in glob.glob('Pic/*.png'): #assuming gif
+    im=Image.open(filename)
+    im = im.convert('RGB')
+    #img = np.array(im)
+    #imgArr=img.reshape((img.shape[1]*img.shape[0],3))
+    
+    im = im.resize(newsize)
+    image_list.append(im)
+
+
+def picGen(start_index, image_list):
     newsize = (200, 200)
     picTest_list = []
     for i in range(start_index,start_index+5):
-        pic_test = Image.open(fileName+str(i)+fileTypeName)
-        pic_test = pic_test.resize(newsize)
-        picTest_list.append(pic_test)
+        picTest_list.append(image_list[i])
     return picTest_list
 with st.container():
     st.sidebar.subheader("CONTROLS")
@@ -66,19 +72,18 @@ with st.container():
         weather = st.select_slider("Choose a Type of Weather",options = weather_options)
         st.write('The current weather is:',weather)
         if st.sidebar.button("Start Gallery"):
-            picResult = picGen(1)
-            picDisplay(picResult)
+            picResult = picGen(1, image_list)
         if st.sidebar.button("Next Page") :
           st.session_state.start_index += 5
           #start_index += 12
           picResult = []
-          picResult = picGen(st.session_state.start_index)
+          picResult = picGen(st.session_state.start_index,image_list)
           picDisplay(picResult)
         if st.sidebar.button('Previous Page') :
           st.session_state.start_index -= 5
           #start_index = start_index - 12
           picResult = []
-          picResult = picGen(st.session_state.start_index)
+          picResult = picGen(st.session_state.start_index,image_list)
           picDisplay(picResult)
 
  
