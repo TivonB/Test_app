@@ -73,14 +73,14 @@ with st.container():
         if st.sidebar.button("Start Gallery"):
             picResult = picGen(1, image_list)
             picDisplay(picResult)
-        if (len(image_list)>int(start_index)+5):
+        if (len(image_list)>int(st.session_state.start_index)+5):
           if st.sidebar.button("Next Page") :
             st.session_state.start_index += 5
             #start_index += 12
             picResult = []
             picResult = picGen(st.session_state.start_index,image_list)
             picDisplay(picResult)
-        if (1<int(start_index)-5):
+        if (1<int(st.session_state.start_index)-5):
           if st.sidebar.button('Previous Page') :
             st.session_state.start_index -= 5
             #start_index = start_index - 12
