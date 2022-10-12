@@ -57,8 +57,8 @@ def picGen(start,end):
         picTest_list.append(pic_test)
     return picTest_list
 with st.container():
-    start = 0
-    end = 12
+    global start = 0
+    global end = 12
     st.sidebar.subheader("CONTROLS")
     left_column, right_column = st.sidebar.columns(2)
     with left_column:
