@@ -56,7 +56,7 @@ for filename in glob.glob('Pic/*.png'): #assuming gif
     
     im = im.resize(newsize)
     image_list.append(im)
-
+st.write(image_list)
 
 def picGen(start_index, image_list):
     newsize = (200, 200)
