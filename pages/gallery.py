@@ -56,7 +56,6 @@ for filename in glob.glob('Pic/*.png'): #assuming gif
     
     im = im.resize(newsize)
     image_list.append(im)
-st.write(image_list)
 
 def picGen(start_index, image_list):
     newsize = (200, 200)
@@ -73,6 +72,7 @@ with st.container():
         st.write('The current weather is:',weather)
         if st.sidebar.button("Start Gallery"):
             picResult = picGen(1, image_list)
+            picDisplay(picResult)
         if st.sidebar.button("Next Page") :
           st.session_state.start_index += 5
           #start_index += 12
