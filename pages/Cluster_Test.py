@@ -70,7 +70,7 @@ clusters.fit(img_features)
 st.write(clusters.labels_)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
 image_cluster["clusterid"] = clusters.labels_
-row1, row2, row3, row4, row5, row6, row7 = 0,0,0,0,0,0,0
+row1, row2, row3, row4, row5, row6, row7, row8, row9, row10 = 0,0,0,0,0,0,0,0,0,0
 for i in range(len(image_cluster)):
     if image_cluster['clusterid'][i]==0:
         if row1 == 0:
@@ -106,6 +106,21 @@ for i in range(len(image_cluster)):
         if row7 == 0:
             st.write("Cluster 7")
             row7+=1
+        st.image(image_list[i])
+    elif image_cluster['clusterid'][i]==7:
+        if row8 == 0:
+            st.write("Cluster 8")
+            row8+=1
+        st.image(image_list[i])
+    elif image_cluster['clusterid'][i]==8:
+        if row9 == 0:
+            st.write("Cluster 9")
+            row9+=1
+        st.image(image_list[i])
+    elif image_cluster['clusterid'][i]==9:
+        if row10 == 0:
+            st.write("Cluster 10")
+            row10+=1
         st.image(image_list[i])
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
