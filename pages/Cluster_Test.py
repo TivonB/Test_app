@@ -29,7 +29,7 @@ from sklearn.decomposition import PCA
 # --- Cluster Test ----
 st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
-newsize = (299,299)
+newsize = (224,224)
 for filename in glob.glob('Weather/*.png'): #assuming gif
     im=Image.open(filename)
     im = im.convert('RGB')
