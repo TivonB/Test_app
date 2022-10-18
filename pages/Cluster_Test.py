@@ -44,6 +44,11 @@ def image_feature(image_list):
     model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
+    for i in range(10):
+        x = img_to_array(image_list[i])
+        x=np.expand_dims(x,axis=0)
+        x= preprocess_input(x)
+        feat=model.predict(x, use_multiprocessing=True)
     for i in range(len(image_list)):
         x = img_to_array(image_list[i])
         x=np.expand_dims(x,axis=0)
