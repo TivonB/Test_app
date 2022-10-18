@@ -17,7 +17,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import img_to_array
 
 # models 
-from keras.applications.vgg19 import VGG19 
+from keras.applications.vgg16 import VGG16 
 from keras.models import Model
 
 # clustering and dimension reduction
@@ -30,31 +30,32 @@ from sklearn.decomposition import PCA
 st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
 newsize = (299,299)
-for filename in glob.glob('Weather/*.png'): #assuming gif
-    im=Image.open(filename)
-    im = im.convert('RGB')
+#for filename in glob.glob('Weather/*.png'): #assuming gif
+    #im=Image.open(filename)
+    #im = im.convert('RGB')
     #img = np.array(im)
     #imgArr=img.reshape((img.shape[1]*img.shape[0],3))
     
-    im = im.resize(newsize)
-    image_list.append(im)
+    #im = im.resize(newsize)
+    #image_list.append(im)
 
-def image_feature(image_list):
-    model = Xception()
+def image_feature():
+    model = VGG16(weights='imagenet', include_top=False)
     model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
-    for i in range(len(image_list)):
-        x = img_to_array(image_list[i])
+    for filename in glob.glob('Weather/*.png'):
+        img = image.load_img(filename, target_size=(224,224))
+        x = img_to_array(img)
         x=np.expand_dims(x,axis=0)
         x= preprocess_input(x)
         feat=model.predict(x)
         feat=feat.flatten()
         features.append(feat)
-        img_name.append(i)
+        img_name.append(filename)
     return features,img_name
 
-img_features,img_name = image_feature(image_list)
+img_features,img_name = image_feature()
 #pca = PCA(n_components=100, random_state=22)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
