@@ -46,10 +46,10 @@ def image_feature():
     img_name = [];
     for filename in glob.glob('Weather/*.png'):
         img = image.load_img(filename, target_size=(224,224))
-        x = img_to_array(img)
-        x=np.expand_dims(x,axis=0)
-        x= preprocess_input(x)
-        feat=model.predict(x)
+        img = np.array(img)
+        reshaped_img = img.reshape(1,224,224,3)
+        x= preprocess_input(reshaped_img)
+        feat=model.predict(x, use_multiprocessing=True)
         feat=feat.flatten()
         features.append(feat)
         img_name.append(filename)
