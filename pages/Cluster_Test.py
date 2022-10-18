@@ -16,7 +16,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import img_to_array
 
 # models 
-from keras.applications.vgg16 import VGG16 
+from keras.applications.vgg19 import VGG19 
 from keras.models import Model
 
 # clustering and dimension reduction
@@ -39,7 +39,7 @@ for filename in glob.glob('Weather/*.png'): #assuming gif
     image_list.append(im)
 
 def image_feature(image_list):
-    model = VGG16()
+    model = VGG19()
     model = Model(inputs = model.inputs, outputs = model.layers[11].output)
     features = [];
     img_name = [];
