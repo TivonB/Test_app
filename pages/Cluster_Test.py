@@ -30,32 +30,31 @@ from sklearn.decomposition import PCA
 st.set_page_config(page_title="Cluster", layout="wide")
 image_list = []
 newsize = (299,299)
-#for filename in glob.glob('Weather/*.png'): #assuming gif
-    #im=Image.open(filename)
-    #im = im.convert('RGB')
+for filename in glob.glob('Weather/*.png'): #assuming gif
+    im=Image.open(filename)
+    im = im.convert('RGB')
     #img = np.array(im)
     #imgArr=img.reshape((img.shape[1]*img.shape[0],3))
     
-    #im = im.resize(newsize)
-    #image_list.append(im)
+    im = im.resize(newsize)
+    image_list.append(im)
 
-def image_feature():
+def image_feature(image_list):
     model = VGG16(weights='imagenet', include_top=False)
     model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
-    for filename in glob.glob('Weather/*.png'):
-        img = image.load_img(filename, target_size=(224,224))
-        img = np.array(img)
-        reshaped_img = img.reshape(1,224,224,3)
-        x= preprocess_input(reshaped_img)
+    for i in range(len(image_list)):
+        x = img_to_array(image_list[i])
+        x=np.expand_dims(x,axis=0)
+        x= preprocess_input(x)
         feat=model.predict(x, use_multiprocessing=True)
         feat=feat.flatten()
         features.append(feat)
-        img_name.append(filename)
+        img_name.append(i)
     return features,img_name
 
-img_features,img_name = image_feature()
+img_features,img_name = image_feature(image_list)
 #pca = PCA(n_components=100, random_state=22)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
@@ -71,37 +70,37 @@ for i in range(len(image_cluster)):
         if row1 == 0:
             st.write("Cluster 1")
             row1+=1
-        st.image(img_name[i])
+        st.image(image_list[i])
     elif image_cluster['clusterid'][i]==1:
         if row2 == 0:
             st.write("Cluster 2")
             row2+=1
-        st.image(img_name[i])
+        st.image(image_list[i])
     elif image_cluster['clusterid'][i]==2:
         if row3 == 0:
             st.write("Cluster 3")
             row3+=1
-        st.image(img_name[i])
+        st.image(image_list[i])
     elif image_cluster['clusterid'][i]==3:
         if row4 == 0:
             st.write("Cluster 4")
             row4+=1
-        st.image(img_name[i])
+        st.image(image_list[i])
     elif image_cluster['clusterid'][i]==4:
         if row5 == 0:
             st.write("Cluster 5")
             row5+=1
-        st.image(img_name[i])
+        st.image(image_list[i])
     elif image_cluster['clusterid'][i]==5:
         if row6 == 0:
             st.write("Cluster 6")
             row6+=1
-        st.image(img_name[i])
+        st.image(image_list[i])
     elif image_cluster['clusterid'][i]==6:
         if row7 == 0:
             st.write("Cluster 7")
             row7+=1
-        st.image(img_name[i])
+        st.image(image_list[i])
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
 count = 0
