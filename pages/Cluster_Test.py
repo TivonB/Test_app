@@ -42,7 +42,7 @@ for filename in glob.glob('Weather/*.png'): #assuming gif
 
 def image_feature(image_list):
     model = MobileNetV2()
-    model = Model(inputs = model.inputs, outputs = model.layers[-7].output)
+    model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
     for i in range(10):
@@ -64,7 +64,7 @@ img_features,img_name = image_feature(image_list)
 #pca = PCA(n_components=100, random_state=22)
 #pca.fit(img_features)
 #x = pca.transform(img_features)
-k = 5
+k = 10
 clusters = KMeans(k, random_state = 0)
 clusters.fit(img_features)
 st.write(clusters.labels_)
