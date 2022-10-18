@@ -71,37 +71,37 @@ for i in range(len(image_cluster)):
         if row1 == 0:
             st.write("Cluster 1")
             row1+=1
-        st.image(image_list[i])
+        st.image(img_name[i])
     elif image_cluster['clusterid'][i]==1:
         if row2 == 0:
             st.write("Cluster 2")
             row2+=1
-        st.image(image_list[i])
+        st.image(img_name[i])
     elif image_cluster['clusterid'][i]==2:
         if row3 == 0:
             st.write("Cluster 3")
             row3+=1
-        st.image(image_list[i])
+        st.image(img_name[i])
     elif image_cluster['clusterid'][i]==3:
         if row4 == 0:
             st.write("Cluster 4")
             row4+=1
-        st.image(image_list[i])
+        st.image(img_name[i])
     elif image_cluster['clusterid'][i]==4:
         if row5 == 0:
             st.write("Cluster 5")
             row5+=1
-        st.image(image_list[i])
+        st.image(img_name[i])
     elif image_cluster['clusterid'][i]==5:
         if row6 == 0:
             st.write("Cluster 6")
             row6+=1
-        st.image(image_list[i])
+        st.image(img_name[i])
     elif image_cluster['clusterid'][i]==6:
         if row7 == 0:
             st.write("Cluster 7")
             row7+=1
-        st.image(image_list[i])
+        st.image(img_name[i])
 #st.image(image_list)
 #st.write("ReShape: ", imgArr.shape)
 count = 0
