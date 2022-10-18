@@ -11,6 +11,7 @@ import pickle
 
 # for loading/processing the images  
 from tensorflow.keras.applications.inception_v3 import InceptionV3
+from tensorflow.keras.applications.Xception import Xception
 from tensorflow.keras.applications.inception_v3 import preprocess_input
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import img_to_array
@@ -39,7 +40,7 @@ for filename in glob.glob('Weather/*.png'): #assuming gif
     image_list.append(im)
 
 def image_feature(image_list):
-    model = VGG19()
+    model = Xception()
     model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
