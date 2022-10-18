@@ -40,7 +40,7 @@ for filename in glob.glob('Weather/*.png'): #assuming gif
 
 def image_feature(image_list):
     model = VGG16()
-    model = Model(inputs = model.inputs, outputs = model.layers[-3].output)
+    model = Model(inputs = model.inputs, outputs = model.layers[-2].output)
     features = [];
     img_name = [];
     for i in range(len(image_list)):
@@ -54,12 +54,12 @@ def image_feature(image_list):
     return features,img_name
 
 img_features,img_name = image_feature(image_list)
-pca = PCA(n_components=10, random_state=22)
-pca.fit(img_features)
-x = pca.transform(img_features)
+#pca = PCA(n_components=100, random_state=22)
+#pca.fit(img_features)
+#x = pca.transform(img_features)
 k = 5
-clusters = KMeans(k, random_state = 22)
-clusters.fit(x)
+clusters = KMeans(k, random_state = 0)
+clusters.fit(img_features)
 st.write(clusters.labels_)
 image_cluster = pd.DataFrame(img_name,columns=['image'])
 image_cluster["clusterid"] = clusters.labels_
@@ -135,4 +135,3 @@ count = 0
 #    st.write("G Value: ", Gvalue)
 #    st.write("B Value: ", Bvalue)
 #  count+=1
-
